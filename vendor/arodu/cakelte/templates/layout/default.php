@@ -30,47 +30,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <?= $this->fetch('css') ?>
 
-  <style>
-
-.main-header{
-  background-color: #6AA4B0 ;
-}
-
-.main-sidebar{
-  background-color: #6AA4B0 ;
-}
-
-.content-header{
-  background-color:  #2F6D80 ;
-}
-
-.content{
-  background-color: #2F6D80 ;
-}
-
-.main-footer{
-  background-color:  #6AA4B0 ;
-}
-a {
-  color: #E1E7E0;
-}
-
-
-</style>
-
 </head>
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-info">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <?= $this->element('header/main') ?>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-light-secondary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="<?= $this->Url->build('/') ?>" class="brand-link">
         <?= $this->Html->image($this->settings['appLogo'], ['alt' => $this->settings['appName'] . ' logo', 'class' => 'brand-image']) ?>
@@ -78,7 +50,7 @@ a {
       </a>
 
       <!-- Sidebar -->
-      <div class="sidebar text-info">
+      <div class="sidebar">
         <?= $this->element('sidebar/main') ?>
       </div>
       <!-- /.sidebar -->
@@ -97,7 +69,7 @@ a {
 
       <!-- Main content -->
       <div class="content">
-        <div class="container-fluid" style="height: 100vh;">
+        <div class="container-fluid">
           <?= $this->Flash->render() ?>
           <?= $this->fetch('content') ?>
         </div><!-- /.container-fluid -->
@@ -114,6 +86,12 @@ a {
     </aside>
     <!-- /.control-sidebar -->
 
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <?= $this->element('footer/main') ?>
+    </footer>
+  </div>
+  <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
 
