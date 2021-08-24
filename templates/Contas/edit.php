@@ -5,43 +5,44 @@
  */
 ?>
 
-<?php $this->assign('title', __('Editar Conta') ); ?>
+<?php $this->assign('title', __('Edit Conta') ); ?>
 
 <?php
 $this->assign('breadcrumb',
   $this->element('content/breadcrumb', [
+    'home' => true,
     'breadcrumb' => [
-      'Todas' => ['action'=>'index'],
-      'Visualizar' => ['action'=>'view', $conta->id_conta],
-      'Edição',
+      'List Contas' => ['action'=>'index'],
+      'View' => ['action'=>'view', $conta->id_conta],
+      'Edit',
     ]
   ])
 );
 ?>
 
 
-<div class="card card-primary card-outline" style="background-color: #2B4560; color: #E1E7E0;">
+<div class="card card-primary card-outline">
   <?= $this->Form->create($conta) ?>
   <div class="card-body">
     <?php
-      echo $this->Form->control('Banco', ['options' => $bancos, 'empty' => true]);
-      echo $this->Form->control('Agência');
-      echo $this->Form->control('Número da conta');
-      echo $this->Form->control('Saldo');
+      echo $this->Form->control('banco_id', ['options' => $bancos, 'empty' => true]);
+      echo $this->Form->control('agencia');
+      echo $this->Form->control('nconta');
+      echo $this->Form->control('saldo');
     ?>
   </div>
 
   <div class="card-footer d-flex">
     <div class="">
       <?= $this->Form->postLink(
-          __('Deletar'),
+          __('Delete'),
           ['action' => 'delete', $conta->id_conta],
-          ['confirm' => __('Quer mesmo deletar # {0}?', $conta->id_conta), 'class' => 'btn btn-danger']
+          ['confirm' => __('Are you sure you want to delete # {0}?', $conta->id_conta), 'class' => 'btn btn-danger']
       ) ?>
     </div>
     <div class="ml-auto">
-      <?= $this->Form->button(__('Salvar')) ?>
-      <?= $this->Html->link(__('Cancelar'), ['action'=>'index'], ['class'=>'btn btn-default']) ?>
+      <?= $this->Form->button(__('Save')) ?>
+      <?= $this->Html->link(__('Cancel'), ['action'=>'index'], ['class'=>'btn btn-default']) ?>
     </div>
   </div>
 
